@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="logo-container">
@@ -24,7 +23,10 @@
                     <span class="logo-tagline">Lavado de Vehículos Mineros</span>
                 </div>
             </div>
-            <nav>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="main-nav">
                 <ul>
                     <li><a href="#inicio" class="nav-link">Inicio</a></li>
                     <li><a href="#quienes-somos" class="nav-link">Quiénes Somos</a></li>
@@ -377,8 +379,9 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript for Smooth Scrolling -->
+    <!-- JavaScript for Smooth Scrolling and Mobile Menu -->
     <script>
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -390,8 +393,16 @@
                         top: target.offsetTop - 70,
                         behavior: 'smooth'
                     });
+
+                    // Close mobile menu when a link is clicked
+                    document.getElementById('main-nav').classList.remove('active');
                 }
             });
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+            document.getElementById('main-nav').classList.toggle('active');
         });
     </script>
 </body>
